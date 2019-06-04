@@ -20,8 +20,10 @@ Try out the application at this
 
 ### Testing Link Shortener Rails Application
 
-- Run `rake db:test:prepare` to build testing database according to the specs
-  defined in the development database
+- Run `rake db:test:load` to recreate the test database from the current
+  db/schema.rb
+- On subsequent attempts, first run `rake db:test:prepare` to check for pending
+  migrations
 - Run `rails test` to run tests
 
 --------------------------------------------------------------------------------

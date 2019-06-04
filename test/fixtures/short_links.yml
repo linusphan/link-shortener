@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+google:
+  original_url: https://google.com
+  shortened_url_key: 12345678
+  admin_url_key: 12345678
+
+example:
+  original_url: http://example.com
+  shortened_url_key: abcdefgh
+  admin_url_key: abcdefgh
