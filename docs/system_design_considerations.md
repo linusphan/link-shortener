@@ -31,7 +31,7 @@ is to be able to handle 1k new URLs/day, where each URL gets 20k hits/day.**
 
 A SQL database such as PostgreSQL can handle ~ 1000 QPS, therefore no concern
 for scaling at the moment since writes/second + reads/second fall well below
-5 QPS. Memory for storage and caching are useful to know if intend to host the
+1000 QPS. Memory for storage and caching are useful to know if intend to host the
 application and thus need to consider how much memory the host machine should
 have. In that case, can assume Rails application instance takes 200-250mb in
 memory.
@@ -41,3 +41,5 @@ memory.
 * No user model needed; no need to register account; no limit/quota/throttling
 * No custom URLs/aliases
 * No default expiration date; user manually expires URLs
+
+
