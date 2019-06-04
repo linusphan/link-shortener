@@ -57,7 +57,7 @@ for this app.
 
 #### Write Short Link
 
-![write_short_link](https://user-images.githubusercontent.com/13613724/58890521-a2288f80-869f-11e9-85b8-0da8f36f14ab.png)
+![write_short_link](https://user-images.githubusercontent.com/13613724/58891124-cfc20880-86a0-11e9-9e00-579816ab974e.png)
 
 This diagram shows the request flow for creating a new shortened link. The user
 sends a request to the link shortener application, computes the business logic,
