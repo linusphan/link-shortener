@@ -1,9 +1,9 @@
 # Link Shortener
 
 ## Overview
-This is a link shortener Rails application that has test coverage and uses
-Postgres. The application takes into account scalability and is built to handle
-1k new urls a day, where each url gets hit 20k times a day.
+This is a link shortener application built using Ruby on Rails that has test
+coverage and uses Postgres. The application takes into account scalability and
+is built to handle 1k new urls a day, where each url gets hit 20k times a day.
 
 
 ## Getting Started
