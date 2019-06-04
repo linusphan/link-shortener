@@ -4,7 +4,8 @@
 This is a link shortener application built using Ruby on Rails that has test
 coverage and uses Postgres. The application takes into account scalability and
 is built to handle 1k new urls a day, where each url gets hit 20k times a day.
-
+Try out the application at this
+[Heroku link](https://link-shortener-linus.herokuapp.com/)
 
 ## Getting Started
 
