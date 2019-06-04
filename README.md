@@ -16,7 +16,7 @@ is built to handle 1k new urls a day, where each url gets hit 20k times a day.
   machine to see/start the Rails application
 - Navigate your browser to localhost:3000
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 ## Documentation
 
 ### Features
@@ -30,6 +30,8 @@ is built to handle 1k new urls a day, where each url gets hit 20k times a day.
    expire the shortened link and see how many times your link has been used.
    When a link has been expired, an empty 404 gets rendered.
 
+--------------------------------------------------------------------------------
+
 ### Database Schema
 
 ![short_links](https://user-images.githubusercontent.com/13613724/58852469-8b584d80-864b-11e9-8731-39985ab5c589.png)
@@ -38,3 +40,21 @@ The database layer is very simple. It only has one table: it stores information
 about the URL mappings. To keep things simple, there is no user table to keep
 track of registered users. Meaning, there is no user registration implemented
 for this app.
+
+--------------------------------------------------------------------------------
+
+### Link Shortener Request Flow
+
+![write_short_link](https://user-images.githubusercontent.com/13613724/58853544-8f866a00-864f-11e9-8a00-af6a3d733b17.png)
+
+This diagram shows the request flow for creating a new shortened link. The user
+sends a request to the link shortener application, computes the business logic,
+which then writes to the postgreSQL database the new URL mapping/record.
+
+![read_short_link](https://user-images.githubusercontent.com/13613724/58853635-d6745f80-864f-11e9-8a9a-0dcdd37ac48a.png)
+
+This diagram shows the request flow to request for the original URL from a
+shortened URL. The user sends the request to the application, which reads the
+original URL based on the unique shortened URL. If the shortened URL existed,
+then the client will receive an HTTP 302 Redirect Response. If the shortened
+URL did not exist, the user will receive an HTTP 404 Not Found response.
