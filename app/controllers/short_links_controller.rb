@@ -4,11 +4,16 @@ class ShortLinksController < ApplicationController
   def index
     shortened_url_key = params[:shortened_url_key]
     short_link = ShortLink.where(shortened_url_key: shortened_url_key).first
-    original_url = short_link.original_url
-    view_count = short_link.view_count
-    short_link.update(view_count: view_count + 1)
 
-    redirect_to fix_url(original_url)
+    if short_link
+      original_url = short_link.original_url
+      view_count = short_link.view_count
+      short_link.update(view_count: view_count + 1)
+
+      redirect_to fix_url(original_url)
+    else
+      render ""
+    end
   end
 
   def show
@@ -19,7 +24,7 @@ class ShortLinksController < ApplicationController
   end
 
   def edit
-    # Possible TODO: add ability to create custom shortened_url_key
+    # Possible Future TODO: add ability to create custom shortened_url_key
   end
 
   def create
@@ -41,7 +46,7 @@ class ShortLinksController < ApplicationController
   end
 
   def update
-    # Possible TODO: implement this action if allow custom key feature
+    # Possible Future TODO: implement this action if allow custom key feature
   end
 
   def destroy
