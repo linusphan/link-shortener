@@ -19,6 +19,7 @@ class ShortLinksController < ApplicationController
   end
 
   def edit
+    # Possible TODO: add ability to create custom shortened_url_key
   end
 
   def create
@@ -40,9 +41,14 @@ class ShortLinksController < ApplicationController
   end
 
   def update
+    # Possible TODO: implement this action if allow custom key feature
   end
 
   def destroy
+    @short_link = ShortLink.find(params[:id])
+    @short_link.destroy
+
+    redirect_to :root
   end
 
   def admin

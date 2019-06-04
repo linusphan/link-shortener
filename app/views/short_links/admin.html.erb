@@ -3,4 +3,11 @@
     <dt>Total Clicks:</dt>
     <dd><%= @short_link.view_count %></dd>
   </dl>
+
+  <%=
+    link_to "Expire Link",
+    short_link_path(@short_link),
+    method: :delete,
+    data: { confirm: "Are you sure?" }
+  %>
 </div>
