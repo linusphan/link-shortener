@@ -43,13 +43,17 @@ for this app.
 
 --------------------------------------------------------------------------------
 
-### Link Shortener Request Flow
+### Link Shortener Request Flow Diagrams
+
+#### Write Short Link
 
 ![write_short_link](https://user-images.githubusercontent.com/13613724/58853544-8f866a00-864f-11e9-8a00-af6a3d733b17.png)
 
 This diagram shows the request flow for creating a new shortened link. The user
 sends a request to the link shortener application, computes the business logic,
 which then writes to the postgreSQL database the new URL mapping/record.
+
+#### Read Short Link
 
 ![read_short_link](https://user-images.githubusercontent.com/13613724/58853635-d6745f80-864f-11e9-8a9a-0dcdd37ac48a.png)
 
