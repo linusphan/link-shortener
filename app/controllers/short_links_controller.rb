@@ -5,9 +5,10 @@ class ShortLinksController < ApplicationController
     shortened_url_key = params[:shortened_url_key]
     short_link = ShortLink.where(shortened_url_key: shortened_url_key).first
     original_url = short_link.original_url
-    short_link.update(view_count: short_link.view_count + 1)
+    view_count = short_link.view_count
+    short_link.update(view_count: view_count + 1)
 
-    redirect_to original_url, status: 302
+    redirect_to fix_url(original_url)
   end
 
   def show
@@ -39,21 +40,27 @@ class ShortLinksController < ApplicationController
   end
 
   def update
-    if @short_link.update(short_link_params)
-    else
-    end
   end
 
   def destroy
   end
 
   def admin
-    
+    admin_url_key = params[:admin_url_key]
+    @short_link = ShortLink.where(admin_url_key: admin_url_key).first
   end
 
   private
 
   def set_short_link
     @short_link = ShortLink.find(params[:id])
+  end
+
+  def fix_url(str)
+    (str.starts_with?('http://') || str.starts_with?('https://')) ? (
+      str
+    ) : (
+      "http://#{str}"
+    )
   end
 end
