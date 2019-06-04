@@ -29,3 +29,12 @@ is built to handle 1k new urls a day, where each url gets hit 20k times a day.
 3. When you go to the Admin URL, you are given the ability to
    expire the shortened link and see how many times your link has been used.
    When a link has been expired, an empty 404 gets rendered.
+
+### Database Schema
+
+![short_links](https://user-images.githubusercontent.com/13613724/58852469-8b584d80-864b-11e9-8731-39985ab5c589.png)
+
+The database layer is very simple. It only has one table: it stores information
+about the URL mappings. To keep things simple, there is no user table to keep
+track of registered users. Meaning, there is no user registration implemented
+for this app.
