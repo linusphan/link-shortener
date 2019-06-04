@@ -1,7 +1,13 @@
 class ShortLinksController < ApplicationController
-  before_action :set_short_link, only: [:index, :show, :edit, :update]
+  before_action :set_short_link, only: [:show, :edit, :update]
 
   def index
+    shortened_url_key = params[:shortened_url_key]
+    short_link = ShortLink.where(shortened_url_key: shortened_url_key).first
+    original_url = short_link.original_url
+    short_link.update(view_count: short_link.view_count + 1)
+
+    redirect_to original_url, status: 302
   end
 
   def show
@@ -42,6 +48,7 @@ class ShortLinksController < ApplicationController
   end
 
   def admin
+    
   end
 
   private
