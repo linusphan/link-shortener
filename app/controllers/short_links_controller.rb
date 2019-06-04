@@ -12,7 +12,7 @@ class ShortLinksController < ApplicationController
 
       redirect_to fix_url(original_url)
     else
-      render ""
+      render_not_found
     end
   end
 
