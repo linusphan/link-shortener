@@ -17,11 +17,13 @@ class ShortLinksController < ApplicationController
   def create
     original_url = params[:short_link]['original_url']
     shortened_url_key = ShortLink.create_shortened_url_key
+    admin_url_key = ShortLink.create_admin_url_key
 
     loop do
       @short_link = ShortLink.create(
         original_url: original_url,
-        shortened_url_key: shortened_url_key
+        shortened_url_key: shortened_url_key,
+        admin_url_key: admin_url_key
       )
 
       break if @short_link.valid?
@@ -37,6 +39,9 @@ class ShortLinksController < ApplicationController
   end
 
   def destroy
+  end
+
+  def admin
   end
 
   private

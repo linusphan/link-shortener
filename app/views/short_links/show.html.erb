@@ -1,0 +1,11 @@
+<% host = URI.parse(request.original_url).host %>
+<% short_link_path = "/s/#{@short_link.shortened_url_key}" %>
+<% admin_link_path = "/a/#{@short_link.admin_url_key}" %>
+
+<dl>
+  <dt>Shortened URL:</dt>
+  <dd><%= link_to "#{host}#{short_link_path}", short_link_path %></dd>
+
+  <dt>Admin URL:</dt>
+  <dd><%= link_to "#{host}#{admin_link_path}", admin_link_path %></dd>
+</dl>

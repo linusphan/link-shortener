@@ -10,10 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_04_070446) do
+ActiveRecord::Schema.define(version: 2019_06_04_094932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "index_for_admin_key_fields", force: :cascade do |t|
+  end
 
   create_table "short_links", force: :cascade do |t|
     t.string "original_url", null: false
@@ -21,6 +24,8 @@ ActiveRecord::Schema.define(version: 2019_06_04_070446) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "shortened_url_key", limit: 16, null: false
+    t.string "admin_url_key", null: false
+    t.index ["admin_url_key"], name: "index_short_links_on_admin_url_key", unique: true
     t.index ["shortened_url_key"], name: "index_short_links_on_shortened_url_key", unique: true
   end
 
