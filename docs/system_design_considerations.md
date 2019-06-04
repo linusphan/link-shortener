@@ -15,7 +15,8 @@ is to be able to handle 1k new URLs/day, where each URL gets 20k hits/day.**
 * Storage estimates:
   * assume we store every shortened URL for 5 years, the total number of stored
     objects will be: 30,000 URLs/month x 5 years x 12 months/year = 1.8M URLs
-  * assume each object = ~ 500 bytes; 1.8M x 500 bytes = 0.9GB needed for storage
+  * assume each object = ~ 500 bytes; 1.8M x 500 bytes = 0.9GB needed for
+    storage
 
 ## Caching considerations
 
@@ -31,13 +32,16 @@ is to be able to handle 1k new URLs/day, where each URL gets 20k hits/day.**
 
 A SQL database such as PostgreSQL can handle ~ 1000 QPS, therefore no concern
 for DB scaling at the moment since writes/second + reads/second fall well below
-1000 QPS. Memory for storage and caching are useful to know if intend to host the
-application and thus need to consider how much memory the host machine should
-have. In that case, can assume Rails application instance takes 200-250mb in
-memory. A typical Rails app can handle 5 QPS, which is well above estimated DB
-QPS; therefore, this application assumes that 1 application server is enough to
-handle the load and don't need to worry about handling concurrent requests from
-separate Rails app servers.
+1000 QPS. Since estimation is extremely far away from the limit, no concern
+for the extra read/update requests for data that contains statistics on how many
+times the shortened URL was used. Memory for storage and caching are useful to
+know if intend to host the application and thus need to consider how much memory
+the host machine should have. In that case, can assume Rails application
+instance takes 200-250 mb in memory. The application is not memory intensive at
+all and even a 2 GB machine is good enough. A typical Rails app can handle
+5 QPS, which is well above estimated DB QPS; therefore, this application assumes
+that 1 application server is enough to handle the load and don't need to worry
+about handling concurrent requests from separate Rails app servers.
 
 ## Other considerations (outside project's scope)
 
