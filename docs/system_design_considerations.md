@@ -22,11 +22,22 @@ is to be able to handle 1k new URLs/day, where each URL gets 20k hits/day.**
 * Using 80-20 rule, 20% of URLs are assumed to generate 80% of traffic.
   1000 writes/day * .2 * 500 bytes = 100,000 bytes = 0.0001 GB
 
-## summary of estimates
+## Summary of estimates
 
 * 0.0115740740741 writes/s
 * 0.231481481482 reads/s
 * 0.9GB storage for 5 years
 * 0.0001 GB memory for cache
 
+A SQL database such as PostgreSQL can handle ~ 1000 QPS, therefore no concern
+for scaling at the moment since writes/second + reads/second fall well below
+5 QPS. Memory for storage and caching are useful to know if intend to host the
+application and thus need to consider how much memory the host machine should
+have. In that case, can assume Rails application instance takes 200-250mb in
+memory.
 
+## Other considerations (outside project's scope)
+
+* No user model needed; no need to register account; no limit/quota/throttling
+* No custom URLs/aliases
+* No default expiration date; user manually expires URLs
