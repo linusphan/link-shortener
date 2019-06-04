@@ -42,7 +42,7 @@ Try out the application at this
 
 ### Database Schema
 
-![short_links](https://user-images.githubusercontent.com/13613724/58852469-8b584d80-864b-11e9-8731-39985ab5c589.png)
+![short_links](https://user-images.githubusercontent.com/13613724/58884891-19592600-8696-11e9-9b54-be6e2bfee983.png)
 
 The database layer is very simple. It only has one table: it stores information
 about the URL mappings. To keep things simple, there is no user table to keep
