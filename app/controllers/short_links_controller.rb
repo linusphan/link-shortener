@@ -4,36 +4,42 @@ class ShortLinksController < ApplicationController
   def index
   end
 
+  def show
+  end
+
   def new
     @short_link = ShortLink.new
-  end
-
-  def create
-    shortened_url = ShortLink.new
-    shortened_url.save
-
-    redirect_to :i_dont_know
-  end
-
-  def show
   end
 
   def edit
   end
 
+  def create
+    original_url = params[:short_link]['original_url']
+    shortened_url_key = ShortLink.create_shortened_url_key
+
+    loop do
+      @short_link = ShortLink.create(
+        original_url: original_url,
+        shortened_url_key: shortened_url_key
+      )
+
+      break if @short_link.valid?
+    end
+
+    redirect_to short_link_path(@short_link)
+  end
+
   def update
     if @short_link.update(short_link_params)
-      # redirect_to ...
     else
-      # redirect_to ...
     end
   end
 
-  private
-
-  def short_link_params
-    params.require(:short_link).permit(:view_count)
+  def destroy
   end
+
+  private
 
   def set_short_link
     @short_link = ShortLink.find(params[:id])
