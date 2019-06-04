@@ -63,3 +63,15 @@ shortened URL. The user sends the request to the application, which reads the
 original URL based on the unique shortened URL. If the shortened URL existed,
 then the client will receive an HTTP 302 Redirect Response. If the shortened
 URL did not exist, the user will receive an HTTP 404 Not Found response.
+
+--------------------------------------------------------------------------------
+## Helpful Notes
+
+### System Design and Scaling Considerations
+
+Some of the most interesting aspects of software engineering is figuring out the
+system design for the application and taking into account scalability as well.
+Some of the thoughts regarding these aspects of software engineering has been
+documented; see the
+[System Design Considerations document](./docs/system_design_considerations.md)
+for more information.
