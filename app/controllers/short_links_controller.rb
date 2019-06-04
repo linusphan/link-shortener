@@ -1,5 +1,5 @@
 class ShortLinksController < ApplicationController
-  before_action :fetch_short_link, only: [:index, :show, :edit, :update]
+  before_action :set_short_link, only: [:index, :show, :edit, :update]
 
   def index
   end
@@ -22,16 +22,20 @@ class ShortLinksController < ApplicationController
   end
 
   def update
-    if @short_link.update whatdoes: :this_do
-      redirect_to :somewhere
+    if @short_link.update(short_link_params)
+      # redirect_to ...
     else
-      redirect_to :somewhere_else
+      # redirect_to ...
     end
   end
 
   private
 
-  def fetch_short_link
+  def short_link_params
+    params.require(:short_link).permit(:view_count)
+  end
+
+  def set_short_link
     @short_link = ShortLink.find(params[:id])
   end
 end
