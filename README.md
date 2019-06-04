@@ -10,12 +10,19 @@ Try out the application at this
 ## Getting Started
 
 ### How to set up the application on development server
+
 - Run `bundle install` from the root directory to install
   ruby dependencies
 - Run `rails db:setup` to setup the database
 - Run `bin/rails server` or `rails s` to start a web server on your development
   machine to see/start the Rails application
 - Navigate your browser to localhost:3000
+
+### Testing Link Shortener Rails Application
+
+- Run `rake db:test:prepare` to build testing database according to the specs
+  defined in the development database
+- Run `rails test` to run tests
 
 --------------------------------------------------------------------------------
 ## Documentation
